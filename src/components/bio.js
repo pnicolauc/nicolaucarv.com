@@ -14,7 +14,7 @@ const Bio = () => {
     query BioQuery {
       avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50, quality: 95) {
+          fixed(width: 50, height: 50, quality: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -24,9 +24,12 @@ const Bio = () => {
           author {
             name
             summary
+            email
           }
           social {
             twitter
+            linkedin
+            github
           }
         }
       }
@@ -42,23 +45,56 @@ const Bio = () => {
   return (
     <div className="bio">
       {avatar && (
-        <Image
-          fixed={avatar}
-          alt={author?.name || ``}
-          className="bio-avatar"
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
+        <div>
+          <Image
+            fixed={avatar}
+            alt={author?.name || ``}
+            className="bio-avatar"
+            imgStyle={{
+              borderRadius: `50%`,
+            }}
+          />
+          <p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://twitter.com/${social?.twitter || ``}`}
+            >
+              Twitter
+            </a>
+          </p>
+          <p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://www.linkedin.com/in/${social?.linkedin || ``}`}
+            >
+              LinkedIn
+            </a>
+          </p>
+          <p>
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={`https://github.com/${social?.github || ``}`}
+            >
+              Github
+            </a>
+          </p>
+          <p>
+            <a target="_blank" rel="noreferrer" href={`mailto:${author.email}`}>
+              Email
+            </a>
+          </p>
+        </div>
       )}
       {author?.name && (
-        <p>
-          Written by <strong>{author.name}</strong> {author?.summary || null}
-          {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
-        </p>
+        <div>
+          <p>
+            Hi, my name is <strong>{author.name}</strong>.{" "}
+            {author?.summary || null}
+          </p>
+        </div>
       )}
     </div>
   )

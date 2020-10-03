@@ -1,14 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Nicolau Carvalho`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Nicolau Carvalho`,
+      summary: `I'm a software developer, currently interested in React.js, computer graphics and other things.`,
+      email: `80.nicolau@gmail.com`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Personal website for Nicolau Carvalho.`,
+    siteUrl: `https://nicolaucarv.com`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `nicolaucarv`,
+      linkedin: `pedro-carvalho-19a2429b`,
+      github: `Machinezero`,
     },
   },
   plugins: [
@@ -60,13 +63,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Nicolau Carvalho`,
+        short_name: `Nicolau C.`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
